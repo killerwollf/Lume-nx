@@ -1,0 +1,3 @@
+import {Lock,ShieldCheck,ArrowUpRight} from 'lucide-react';
+import {portrait} from '@/mocks/data';
+export function AdultHero(){return <section className="adult-hero"><img src={portrait} alt="Retrato editorial artístico com luz violeta"/><div className="adult-hero-copy"><span className="eyebrow"><Lock size={13}/>18+ STUDIO · ESPAÇO RESERVADO</span><h1>Seu espaço criativo<br/><em>particular.</em></h1><p>Retratos, personagens e histórias.<br/>Crie no seu ritmo, com privacidade.</p><a href="#composer">Comece uma criação <ArrowUpRight size={16}/></a></div><div className="privacy-ribbon"><ShieldCheck size={15}/><span>Privado por padrão</span><span>Fora do Explore</span><span>Sem compartilhamento automático</span></div></section>}
