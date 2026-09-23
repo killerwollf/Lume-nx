@@ -1,4 +1,4 @@
 'use client';
-import {Shuffle,Film,Music2,Image,Sparkles} from 'lucide-react';
-import {ideaVisuals,suggestions} from '@/mocks/data';
-export function IdeaCards({offset,onShuffle,onSelect}:{offset:number;onShuffle:()=>void;onSelect:(p:string)=>void}){return <section className="idea-section"><div className="section-title"><h2><Sparkles size={17}/> Ideias para começar</h2><button onClick={onShuffle}><Shuffle size={15}/>Embaralhar</button></div><div className="idea-track">{Array.from({length:4},(_,i)=>{const n=(offset+i)%suggestions.length;const Icon=n===3?Music2:n%2?Film:Image;return <button key={n} className="idea-card" onClick={()=>onSelect(suggestions[n])}><img src={ideaVisuals[n%ideaVisuals.length]} alt="" loading="lazy"/><span><Icon size={15}/>{suggestions[n]}</span><span className="idea-plus">+</span></button>})}</div></section>}
+import {Shuffle} from 'lucide-react';
+import {suggestions} from '@/mocks/data';
+export function IdeaCards({offset,onShuffle,onSelect}:{offset:number;onShuffle:()=>void;onSelect:(p:string)=>void}){return <section className="idea-section idea-pills"><span className="idea-label">Experimente estas ideias:</span><div className="idea-track">{Array.from({length:5},(_,i)=>{const n=(offset+i)%suggestions.length;return <button key={n} className="idea-card" onClick={()=>onSelect(suggestions[n])}><span>{suggestions[n]}</span></button>})}</div><button className="idea-shuffle" onClick={onShuffle} aria-label="Embaralhar ideias"><Shuffle size={16}/></button></section>}
