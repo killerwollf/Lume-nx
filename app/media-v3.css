@@ -1,0 +1,21 @@
+/* Media pass 3: each high-visibility slot gets its own visual. */
+.sound-card{
+  background-image:
+    linear-gradient(90deg,#08111ee8,#11102fb5 52%,#17113055),
+    url('https://images.pexels.com/photos/18261431/pexels-photo-18261431.jpeg?auto=compress&cs=tinysrgb&w=1200');
+  background-size:cover;
+  background-position:center 42%;
+}
+.rail-adult{
+  background-image:
+    linear-gradient(90deg,#2e0f23ef,#311122a8 55%,#1b0e1845),
+    url('https://images.pexels.com/photos/12789661/pexels-photo-12789661.jpeg?auto=compress&cs=tinysrgb&w=1200');
+  background-size:cover;
+  background-position:center 35%;
+}
+.hero-picture img,.hero-picture video,.creation-cover>img,.model-art img,.media-card img,.media-card video,.adult-hero>img{
+  image-rendering:auto;
+}
+.hero-picture img,.creation-cover>img,.model-art img,.media-card img,.adult-hero>img{
+  object-fit:cover;
+}
