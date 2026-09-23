@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./premium.css";
+import "./media-v3.css";
 
 export const metadata: Metadata = {
   title: "LUME NX — Studio Criativo com IA",
