@@ -1,6 +1,23 @@
 'use client';
 import {Image,Film,AudioLines,Wand2,Lock,ArrowUpRight,Users,FolderLock} from 'lucide-react';
-import {portrait,landscape,art} from '@/mocks/data';
+import {premiumVisuals} from '@/mocks/data';
 import {Waveform} from './Media';
-const cards=[{title:'Imagem',subtitle:'Imagine. Descreva. Crie.',href:'/create/image',icon:Image,image:portrait,tone:'blue'},{title:'Vídeo',subtitle:'Dê movimento às ideias.',href:'/create/video',icon:Film,image:landscape,tone:'violet'},{title:'Áudio',subtitle:'Música, voz e atmosfera.',href:'/create/audio',icon:AudioLines,image:'',tone:'amber'},{title:'Editar',subtitle:'Uma nova versão de tudo.',href:'/edit',icon:Wand2,image:art,tone:'green'},{title:'18+ Studio',subtitle:'Seu espaço particular.',href:'/adult',icon:Lock,image:portrait,tone:'magenta'}];
-export function CreationCards({adult=false,onIdea}:{adult?:boolean;onIdea?:(p:string)=>void}){const items=adult?[{...cards[0],title:'Imagem adulta',href:'/adult/image'},{...cards[1],title:'Vídeo adulto',href:'/adult/video'},{...cards[0],title:'Personagens',subtitle:'Identidade e expressão.',href:'/adult/image?tool=character',icon:Users},{...cards[3],href:'/adult/image?tool=edit'},{...cards[4],title:'Galeria privada',href:'#private-gallery',icon:FolderLock}]:cards;return <div className="creation-deck">{items.map(c=><a key={c.title} className={'visual-create '+c.tone} href={c.href}><div className="creation-cover">{c.image?<img src={c.image} alt="" loading="lazy"/>:<Waveform/>}<span className="creation-icon"><c.icon size={21}/></span><ArrowUpRight className="creation-arrow" size={17}/></div><div className="creation-caption"><h3>{c.title}</h3><p>{c.subtitle}</p></div></a>)}</div>}
+
+const cards=[
+ {title:'Imagem',subtitle:'Imagine. Descreva. Crie.',href:'/create/image',icon:Image,image:premiumVisuals.portrait,tone:'blue'},
+ {title:'Vídeo',subtitle:'Dê movimento às ideias.',href:'/create/video',icon:Film,image:premiumVisuals.cinematic,tone:'violet'},
+ {title:'Áudio',subtitle:'Música, voz e atmosfera.',href:'/create/audio',icon:AudioLines,image:'',tone:'amber'},
+ {title:'Editar',subtitle:'Uma nova versão de tudo.',href:'/edit',icon:Wand2,image:premiumVisuals.product,tone:'green'},
+ {title:'18+ Studio',subtitle:'Seu espaço particular.',href:'/adult',icon:Lock,image:premiumVisuals.adultEditorial,tone:'magenta'}
+];
+
+export function CreationCards({adult=false,onIdea}:{adult?:boolean;onIdea?:(p:string)=>void}){
+ const items=adult?[
+  {...cards[0],title:'Imagem adulta',href:'/adult/image',image:premiumVisuals.adultEditorial},
+  {...cards[1],title:'Vídeo adulto',href:'/adult/video',image:premiumVisuals.adultPortrait},
+  {...cards[0],title:'Personagens',subtitle:'Identidade e expressão.',href:'/adult/image?tool=character',icon:Users,image:premiumVisuals.editorial},
+  {...cards[3],href:'/adult/image?tool=edit',image:premiumVisuals.fashion},
+  {...cards[4],title:'Galeria privada',href:'#private-gallery',icon:FolderLock,image:premiumVisuals.portraitAlt}
+ ]:cards;
+ return <div className="creation-deck">{items.map(c=><a key={c.title} className={'visual-create '+c.tone} href={c.href}><div className="creation-cover">{c.image?<img src={c.image} alt="" loading="lazy"/>:<Waveform/>}<span className="creation-icon"><c.icon size={21}/></span><ArrowUpRight className="creation-arrow" size={17}/></div><div className="creation-caption"><h3>{c.title}</h3><p>{c.subtitle}</p></div></a>)}</div>
+}

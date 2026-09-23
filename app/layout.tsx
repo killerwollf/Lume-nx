@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./premium.css";
 
 export const metadata: Metadata = {
-  title: "LUME NX — Creative Studio",
-  description: "Your imagination. A new dimension. Images, video and audio in one creative studio.",
+  title: "LUME NX — Studio Criativo com IA",
+  description: "Sua imaginação em uma nova dimensão. Imagens, vídeos, áudio, edição e criação com IA em um só studio.",
   other: {
     "codex-preview": "development",
   },
